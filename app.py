@@ -1,7 +1,9 @@
 from random import randint
 
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template, jsonify, request
 from flask_cors import CORS
+from lidarproc.main.data_retrieval import LidarThread
+
 
 app = Flask(__name__, static_folder='flaskvue/dist/static', template_folder='flaskvue/dist')
 cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
@@ -19,6 +21,14 @@ def random_number():
         'randomNumber': randint(1, 100)
     }
     return jsonify(response)
+
+
+@app.route('/connect-lidar', methods=["POST"])
+def connect_lidar():
+    if request.method == "POST":
+        address = request.form["address"]
+        port = request.form["port"]
+        lt = LidarThread("lidar_logger")
 
 
 if __name__ == '__main__':
