@@ -11,3 +11,12 @@ $ npm install
 ```
 
 Tested on Python 3.6.
+
+The first aim is to bind: 
+* a low level code https://github.com/gobgob/rplidar_a3,
+* a high level code https://github.com/gobgob/lidar-processor,
+* this project for visualization.
+
+The second aim is: 
+* to be generic enough to be compatible with other LiDAR devices ,
+* to have a clear and precise protocole to visualize outputs of several methods for displaying forms, tracking, etc.
