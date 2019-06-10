@@ -6,7 +6,7 @@ Procedure to install the tool:
 ```bash
 $ cd lidar-server-flask-vue
 $ pip install -r requirements
-$ cd frontend
+$ cd flaskvue/frontend
 $ npm install
 ```
 
