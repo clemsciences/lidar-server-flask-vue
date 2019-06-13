@@ -1,10 +1,12 @@
 /* eslint-disable */
 <template>
-  <div>
+
+  <v-container fluid>
+    <v-label>Bonjour</v-label>
     <p>Home page</p>
     <p>Random number from backend: {{ randomNumber }}</p>
     <button @click="getRandom">New random number</button>
-</div>
+  </v-container>
 </template>
 
 <script>
@@ -41,7 +43,7 @@ export default {
   created () {
     this.getRandom()
   }
-}
+};
 </script>
 
 <style scoped>

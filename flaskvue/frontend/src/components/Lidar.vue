@@ -1,14 +1,15 @@
 <template>
-    <div id="lidar-view">
 
-    </div>
+    <v-container id="lidar-view">
+
+    </v-container>
 
 </template>
 
 <script>
 
     import Plotly from 'plotly.js-dist';
-    Plotly.
+    let a = Plotly();
     export default {
         name: "Lidar"
     }
