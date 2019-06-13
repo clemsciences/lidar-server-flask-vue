@@ -1,14 +1,16 @@
 <template>
-  <v-app>
-    <app-header></app-header>
-    <p>Oui ?</p>
-    <p>Bizarre</p>
+  <div id="app">
+    <v-app>
+      <v-content>
+      <app-header></app-header>
+      </v-content>
 
-    <v-content>
-      <router-view/>
-    </v-content>
+      <v-content>
+        <router-view/>
+      </v-content>
 
-  </v-app>
+    </v-app>
+  </div>
 
 </template>
 
@@ -21,6 +23,7 @@
 
   export default {
     name: 'Hugin',
+    el: '#app',
     components:{
       'app-header': Header,
     },

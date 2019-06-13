@@ -2,6 +2,7 @@
 <template>
 
   <v-container fluid>
+    <Config></Config>
     <v-label>Bonjour</v-label>
     <p>Home page</p>
     <p>Random number from backend: {{ randomNumber }}</p>
@@ -11,8 +12,10 @@
 
 <script>
   import axios from 'axios'
+  import Config from "./Config";
 
 export default {
+  components: {Config},
   data () {
     return {
       randomNumber: 0
