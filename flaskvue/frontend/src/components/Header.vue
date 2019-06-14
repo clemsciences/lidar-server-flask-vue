@@ -39,12 +39,6 @@
                     this.isConfigButtonClicked = !this.isConfigButtonClicked;
                 }
             },
-        computed:
-            {
-                isConfigButtonClicked: function(){
-
-                }
-            }
 
     }
 </script>
