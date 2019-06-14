@@ -1,11 +1,15 @@
 <template>
     <v-toolbar dense color="primary">
+        <v-toolbar-side-icon @click="openConfig"></v-toolbar-side-icon>
         <v-toolbar-title class="headline text-uppercase">Hugin</v-toolbar-title>
 
-      <!--<v-toolbar-side-icon>M</v-toolbar-side-icon>-->
-        <!--<v-toolbar-items>-->
-            <!--<v-label>Hugin</v-label>-->
-        <!--</v-toolbar-items>-->
+<!--        <v-list v-if="isConfigButtonClicked">-->
+
+
+<!--        </v-list>-->
+        <config v-if="isConfigButtonClicked">
+
+        </config>
 
         <v-spacer></v-spacer>
 
@@ -17,9 +21,31 @@
 </template>
 
 <script>
+    import Config from './Config.vue';
+
     export default {
         name: "Header",
-        data: () => {return {};},
+        components:{
+            "config": Config
+        },
+        data: () => {
+            return {
+                isConfigButtonClicked: false,
+            };
+            },
+        methods:
+            {
+                openConfig: function(){
+                    this.isConfigButtonClicked = !this.isConfigButtonClicked;
+                }
+            },
+        computed:
+            {
+                isConfigButtonClicked: function(){
+
+                }
+            }
+
     }
 </script>
 

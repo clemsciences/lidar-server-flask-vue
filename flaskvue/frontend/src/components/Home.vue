@@ -1,13 +1,13 @@
 /* eslint-disable */
 <template>
 
-  <v-container fluid>
-    <Config></Config>
-    <v-label>Bonjour</v-label>
-    <p>Home page</p>
-    <p>Random number from backend: {{ randomNumber }}</p>
-    <button @click="getRandom">New random number</button>
-  </v-container>
+<!--  <v-container fluid>-->
+<!--&lt;!&ndash;    <Config></Config>&ndash;&gt;-->
+<!--    <v-label>Bonjour</v-label>-->
+<!--    <p>Home page</p>-->
+<!--    <p>Random number from backend: {{ randomNumber }}</p>-->
+<!--    <button @click="getRandom">New random number</button>-->
+<!--  </v-container>-->
 </template>
 
 <script>
