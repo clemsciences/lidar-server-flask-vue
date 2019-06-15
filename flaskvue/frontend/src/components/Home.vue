@@ -8,6 +8,10 @@
 <!--    <p>Random number from backend: {{ randomNumber }}</p>-->
 <!--    <button @click="getRandom">New random number</button>-->
 <!--  </v-container>-->
+    <v-footer class="pa-3 footer">
+    <v-spacer></v-spacer>
+    <div><a href="https://github.com/clemsciences/lidar-server-flask-vue.git">Venez contribuer ici</a></div>
+  </v-footer>
 </template>
 
 <script>
@@ -50,5 +54,11 @@ export default {
 </script>
 
 <style scoped>
+    .footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        background-color: antiquewhitete;
+}
 
 </style>
