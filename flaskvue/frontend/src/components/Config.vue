@@ -25,7 +25,12 @@
                     <div class="input-group">
                         <h4>Filtrage statistique</h4>
                         <form @submit.prevent="applyConfig">
-                            <v-checkbox v-model="extendedKalmanFilter" label="Filtrage de Kalman étendu"></v-checkbox>
+                            <v-radio-group>
+                                <v-radio v-model="kalmanFilter" label="Filtrage de Kalman" value="kalman"></v-radio>
+                                <v-radio v-model="extendedKalmanFilter" label="Filtrage de Kalman étendu" value="kalman-extended"></v-radio>
+                            </v-radio-group>
+<!--                            <v-input type="radio" id="kalman" v-model="picked">-->
+
                             <v-text-field v-model="targetNumbers" type="number" min="0" max="2" label="Nombre de cibles"></v-text-field>
 
                         </form>
