@@ -5,7 +5,7 @@ from flask_cors import CORS
 from lidarproc.main.data_retrieval import LidarThread
 
 
-app = Flask(__name__, static_folder='flaskvue/dist/static', template_folder='flaskvue/dist')
+app = Flask(__name__, static_folder='flaskvue/frontend/static', template_folder='flaskvue/frontend')
 cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 
