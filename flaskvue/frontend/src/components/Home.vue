@@ -1,25 +1,29 @@
 /* eslint-disable */
 <template>
 
-<!--  <v-container fluid>-->
+  <v-container fluid>
 <!--&lt;!&ndash;    <Config></Config>&ndash;&gt;-->
 <!--    <v-label>Bonjour</v-label>-->
 <!--    <p>Home page</p>-->
 <!--    <p>Random number from backend: {{ randomNumber }}</p>-->
 <!--    <button @click="getRandom">New random number</button>-->
-<!--  </v-container>-->
+
+    <Lidar></Lidar>
     <v-footer class="pa-3 footer">
-    <v-spacer></v-spacer>
-    <div><a href="https://github.com/clemsciences/lidar-server-flask-vue.git">Venez contribuer ici</a></div>
-  </v-footer>
+        <v-spacer></v-spacer>
+        <div><a href="https://github.com/clemsciences/lidar-server-flask-vue.git">Venez contribuer ici</a></div>
+      </v-footer>
+  </v-container>
 </template>
 
 <script>
   import axios from 'axios'
   import Config from "./Config";
+  import Lidar from "./Lidar";
+
 
 export default {
-  components: {Config},
+  components: {Lidar, Config},
   data () {
     return {
       randomNumber: 0
