@@ -20,6 +20,15 @@
         components: {
             Plotly
         },
+        created: function() {
+
+        },
+        mounted: function(){
+
+        },
+        updated: function(){
+
+        },
 
         data() {
             return {

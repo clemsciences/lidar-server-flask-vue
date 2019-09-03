@@ -2,6 +2,10 @@
 
 > A Vue.js project
 
+https://github.com/plotly/plotly.js/
+https://plot.ly/javascript/polar-chart/#line-polar-plot
+https://www.npmjs.com/package/vue-socket.io
+
 ## Build Setup
 
 ``` bash

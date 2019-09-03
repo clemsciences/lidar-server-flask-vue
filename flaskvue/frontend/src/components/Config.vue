@@ -1,7 +1,11 @@
 <template>
-    <v-container class="config">
+    <v-container class="config full-height" xs4 pa-3>
+        <v-navigation-drawer
+        permanent
+        absolute
+        >
         <v-layout row>
-            <v-flex xs4 pa-3 class="Config">
+            <v-flex  class="Config">
                 <v-card>
                     <div class="header">
                         <h3>Config</h3>
@@ -40,6 +44,7 @@
 
             </v-flex>
         </v-layout>
+        </v-navigation-drawer>
     </v-container>
 </template>
 
@@ -55,6 +60,7 @@
                 port: '',
                 connected: false,
                 n_rafraichissement: 1,
+                kalmanFilter: false,
                 extendedKalmanFilter: false,
                 targetNumbers: 0
             };
@@ -81,7 +87,8 @@
   top: 48px;
   left: 0;
   /*z-index: 10000;*/
-  height: calc(100% - 48px);
+  /*height: calc(100% - 48px);*/
+  height: 100%;
   /*box-shadow: 0 10px 10px rgba(0,0,0,0.4);*/
 }
 
