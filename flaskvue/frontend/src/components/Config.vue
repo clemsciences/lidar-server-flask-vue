@@ -1,12 +1,9 @@
 <template>
     <v-container class="config full-height" xs4 pa-3>
-        <v-navigation-drawer
-        permanent
-        absolute
-        >
+        <v-navigation-drawer permanent absolute app>
         <v-layout row>
             <v-flex  class="Config">
-                <v-card>
+                <v-card class="barre_verticale">
                     <div class="header">
                         <h3>Config</h3>
                     </div>
@@ -54,7 +51,7 @@
     import VueSocketIO from 'vue-socket.io'
     export default {
         name: "Config",
-        data: function() {
+        data() {
             return {
                 ipAddress: '',
                 port: '',
@@ -68,11 +65,26 @@
         methods: {
             applyConfig: function(){
                 console.log("config applied");
+                console.log(this.connected);
+                console.log(this.ipAddress);
+
+                this.$emit("ipAddress", {
+                    "ipAddress": this.ipAddress,
+                    "port": this.port
+                });
+                VueSocketIO();
+
                 return {
-
-
                 };
-            }
+            },
+            checkIPAddress(ipAddress){
+
+            },
+            checkPort(port){
+
+            },
+
+
         },
         computed: {
             }
@@ -81,7 +93,10 @@
 </script>
 
 <style scoped>
-
+.barre_verticale{
+    padding-left: 30px;
+    margin-left: 10px;
+}
 .config    {
   position: absolute;
   top: 48px;
