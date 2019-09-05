@@ -59,7 +59,8 @@
                 n_rafraichissement: 1,
                 kalmanFilter: false,
                 extendedKalmanFilter: false,
-                targetNumbers: 0
+                targetNumbers: 0,
+                lidarSocket: null
             };
         },
         methods: {
@@ -72,7 +73,11 @@
                     "ipAddress": this.ipAddress,
                     "port": this.port
                 });
-                VueSocketIO();
+                this.lidarSocket = new VueSocketIO({
+                    debug: true,
+                    connection: this.ipAddress+":"+this.port, // CORS block origin Access to XMLHttpRequest at '' from origin 'http://localhost:8081' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+
+                });
 
                 return {
                 };
