@@ -83,4 +83,7 @@ Output: filtered, smoothed or predicted coordinates according to a model which d
 ### Data format
 
 
- 
+- [realtime chart js](https://medium.com/js-dojo/build-a-realtime-chart-with-vue-js-d7e2e25a5e21)
+- [real-time data application using vue js](https://dzone.com/articles/creating-real-time-data-aapplication-using-vuejs)
+
+

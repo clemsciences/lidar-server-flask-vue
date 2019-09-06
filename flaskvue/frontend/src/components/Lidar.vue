@@ -10,9 +10,6 @@
 <script>
     import { Plotly } from 'vue-plotly';
 
-
-
-
     export default {
 
         name: "Lidar",
