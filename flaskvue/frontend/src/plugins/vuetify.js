@@ -9,6 +9,7 @@ import Vuetify, {
     VFlex,
     VIcon,
     VDataTable,
+    VSlider
 } from "vuetify/lib";
 
 import 'vuetify/dist/vuetify.min.css';
@@ -25,6 +26,7 @@ Vue.use(Vuetify, {
         VFlex,
         VIcon,
         VDataTable,
+        VSlider,
     },
     theme: {
     primary: '#3A84FF',

@@ -9,13 +9,15 @@
 
 <script>
     import { Plotly } from 'vue-plotly';
+    import Replay from 'Replay';
 
     export default {
 
         name: "Lidar",
 
         components: {
-            Plotly
+            Plotly,
+            Replay
         },
         created: function() {
 
