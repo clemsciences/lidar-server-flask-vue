@@ -2,6 +2,7 @@
 
     <v-container id="lidar-view">
         <Plotly :data="data" :layout="layout"/>
+        <Replay/>
 
     </v-container>
 
@@ -9,7 +10,7 @@
 
 <script>
     import { Plotly } from 'vue-plotly';
-    import Replay from 'Replay';
+    import Replay from './Replay';
 
     export default {
 

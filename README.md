@@ -28,6 +28,8 @@ It processes data sent by low-level:
 * directly, if there is a direct connection,
 * indirectly, if this is the web interface which resends data.
 
+It can display real-time measures as well as recorded measures.
+
 It can locate, map, predict, smooth, filter trajectories.
 
 Location:

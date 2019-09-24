@@ -2,10 +2,12 @@ from random import randint
 
 from flask import Flask, render_template, jsonify, request
 from flask_cors import CORS
+from flask_socketio import SocketIO
 from lidarproc.main.data_retrieval import LidarThread
 
 
 app = Flask(__name__, static_folder='flaskvue/frontend/static', template_folder='flaskvue/frontend')
+socketio = SocketIO(app)
 cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 

@@ -1,18 +1,41 @@
 <template>
 
-    <v-slider
-      v-model="volume"
-      @end=""
-      append-icon="volume_up"
-      prepend-icon="volume_down"
-      label="Durée"
-    ></v-slider>
+    <v-card class="mx-auto" max-width="600">
+
+        <v-card-text>
+            <v-row class="mb-4" justify="space-between">
+                <v-col>
+                    <v-slider
+                      v-model="time"
+                      label="Durée"
+                    ></v-slider>
+
+                </v-col>
+
+
+            </v-row>
+        </v-card-text>
+
+
+
+
+    </v-card>
 
 </template>
 
 <script>
     export default {
-        name: "Replay"
+        name: "Replay",
+        data() {
+            return {
+                time: 10,
+            }
+        },
+        computed: {
+            displayMeasureAtTimeT() {
+                console.log("le temps");
+            }
+        }
     }
 </script>
 
