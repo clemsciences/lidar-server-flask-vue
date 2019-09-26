@@ -32,19 +32,19 @@ It can display real-time measures as well as recorded measures.
 
 It can locate, map, predict, smooth, filter trajectories.
 
-Location:
+### Location
 
 Input: list of points whose coordinates are in LiDAR basis.
 
 Output: list of points/groups of points in the map coordinates.
 
-Mapping:
+### Mapping
 
 Input: list of points whose coordinates are in LiDAR coordinates.
 
 Output: list of points whose coordinates are in a fix basis.
 
-Filtering, prediction, smoothing:
+### Filtering, prediction, smoothing
 
 Input: list of points whose coordinates are in LiDAR coordinates.
 
@@ -81,11 +81,3 @@ Output: filtered, smoothed or predicted coordinates according to a model which d
 
 * Showing a map
 * Showing the environment of the robot
-
-### Data format
-
-
-- [realtime chart js](https://medium.com/js-dojo/build-a-realtime-chart-with-vue-js-d7e2e25a5e21)
-- [real-time data application using vue js](https://dzone.com/articles/creating-real-time-data-aapplication-using-vuejs)
-
-
