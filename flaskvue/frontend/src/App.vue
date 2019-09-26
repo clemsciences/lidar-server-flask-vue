@@ -1,10 +1,14 @@
 <template>
   <div id="app">
     <v-app>
-      <app-header/>
+        <v-content>
+        <v-row class="pa-2">
+            <app-header/>
+        </v-row>
 
-      <v-content>
-        <router-view/>
+        <v-row class="pa-10">
+            <router-view/>
+        </v-row>
       </v-content>
 
     </v-app>

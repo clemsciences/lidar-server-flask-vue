@@ -1,4 +1,4 @@
-# Visulization tool for processed LiDAR data
+# Visualization tool for processed LiDAR data
 
 It is assumed python 3.6 with pip 3.6 are installed as well as Node JS with NPM.
 
@@ -8,7 +8,7 @@ $ cd lidar-server-flask-vue
 $ pip install -r requirements
 $ cd flaskvue/frontend
 $ npm install
-$ npm run serve
+$ npm run start
 ```
 
 Tested on Python 3.6.

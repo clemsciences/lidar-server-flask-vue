@@ -7,12 +7,16 @@
 <!--    <p>Home page</p>-->
 <!--    <p>Random number from backend: {{ randomNumber }}</p>-->
 <!--    <button @click="getRandom">New random number</button>-->
-
-    <Lidar></Lidar>
-    <v-footer class="pa-3 footer">
-        <v-spacer></v-spacer>
-        <div><a href="https://github.com/clemsciences/lidar-server-flask-vue.git">Venez contribuer ici</a></div>
-      </v-footer>
+        <v-row class="pa-9">
+            <Lidar></Lidar>
+        </v-row>
+        <v-row class="pa-3">
+        <v-footer class="pa-3 footer" absolute>
+            <!--<v-spacer></v-spacer>-->
+            <div class="flex-grow-1"></div>
+            <div><a href="https://github.com/clemsciences/lidar-server-flask-vue.git">Venez contribuer ici</a></div>
+          </v-footer>
+      </v-row>
   </v-container>
 </template>
 
@@ -61,7 +65,7 @@ export default {
     .footer {
         position: absolute;
         bottom: 0;
-        width: 100%;
+        width: 90%;
         background-color: antiquewhitete;
 }
 

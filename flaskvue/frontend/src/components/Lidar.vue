@@ -49,6 +49,9 @@
                     // marker: {size: 12}
                 },],
                 layout: {
+                    //width: 500,
+                    height: 400,
+                    autosize: true,
                     xaxis: {
                         range: [0.75, 5.25]
                     },
@@ -63,5 +66,7 @@
 </script>
 
 <style scoped>
+#lidar-view {
 
+}
 </style>
