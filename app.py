@@ -1,14 +1,16 @@
 from random import randint
 
+import aiohttp
 from flask import Flask, render_template, jsonify, request
 from flask_cors import CORS
 from flask_socketio import SocketIO
-from lidarproc.main.data_retrieval import LidarThread
 
 
 app = Flask(__name__, static_folder='flaskvue/frontend/static', template_folder='flaskvue/frontend')
 socketio = SocketIO(app)
 cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
+
+session = aiohttp.ClientSession()
 
 
 @app.route('/', defaults={'path': ''})
@@ -27,11 +29,18 @@ def random_number():
 
 @app.route('/connect-lidar', methods=["POST"])
 def connect_lidar():
+    global address, port
     if request.method == "POST":
         address = request.form["address"]
         port = request.form["port"]
-        lt = LidarThread("lidar_logger")
+
+
+@app.route("/get_measures", methods=["POST"])
+async def get_measures():
+    async with session.post(address+"/get_measures") as resp:
+        return jsonify(await resp.json())
 
 
 if __name__ == '__main__':
     app.run(debug=True)
+    session.close()
