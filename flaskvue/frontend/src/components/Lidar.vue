@@ -11,6 +11,7 @@
 <script>
     import { Plotly } from 'vue-plotly';
     import Replay from './Replay';
+    import axios from 'axios';
 
     export default {
 
@@ -19,6 +20,16 @@
         components: {
             Plotly,
             Replay
+        },
+
+        methods: {
+            get_measures_test() {
+
+            },
+            get_measures() {
+
+            },
+
         },
         created: function() {
 

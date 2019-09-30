@@ -1,4 +1,8 @@
+"""
+
+"""
 from random import randint
+import json
 
 import aiohttp
 from flask import Flask, render_template, jsonify, request
@@ -39,6 +43,13 @@ def connect_lidar():
 async def get_measures():
     async with session.post(address+"/get_measures") as resp:
         return jsonify(await resp.json())
+
+
+@app.route("/test_measures", methods=["POST"])
+def get_measures_test():
+    with open("data/measures_233530092019.json") as f:
+        measures = json.load(f)
+        return jsonify(measures)
 
 
 if __name__ == '__main__':
