@@ -13,39 +13,15 @@
     import { Plotly } from 'vue-plotly';
     import Replay from './Replay';
     import axios from 'axios';
-    axios.defaults.baseURL = "http://127.0.0.1:5000";
+    axios.defaults.baseURL = "http://localhost:5000";
 
     export default {
-
         name: "Lidar",
-
         components: {
             Plotly,
             Replay
         },
-
-        methods: {
-            get_measures_test() {
-                axios.get('/test_measures').then(response =>
-                    (this.data.measures = response.measure));
-
-            },
-            get_measures() {
-
-            },
-
-        },
-        created: function() {
-
-        },
-        mounted: function(){
-
-        },
-        updated: function(){
-
-        },
-
-        data() {
+        data: function() {
             return {
                 measures: [],
                 data: [{
@@ -66,7 +42,7 @@
                 },],
                 layout: {
                     //width: 500,
-                    height: 400,
+                    height: 600,
                     autosize: true,
                     xaxis: {
                         range: [0.75, 5.25]
@@ -75,7 +51,60 @@
                     title: 'Simulation mesures LiDAR'
                 }
             }
-        }
+        },
+        created: function() {
+
+        },
+        mounted: function(){
+
+        },
+        updated: function(){
+
+        },
+        methods: {
+
+            setMeasuresPlotly: function() {
+                let r = [];
+                let theta = [];
+                this.measures.forEach(function (element) {
+                    theta.push(element[0]);
+                    r.push(element[1]);
+                });
+                this.layout.title = 'Mesures LiDAR';
+                this.data = [
+                    {
+                        r: r,
+                        theta: theta,
+                        mode: 'markers',
+                        marker: {
+                            color: "rgb(0,0,0)",
+                            size: 5,
+                        },
+                        name: 'lidar_simulation',
+                        line: {color: 'red'},
+                        type: 'scatterpolar',
+                    }
+                ];
+                console.log(this.data);
+
+            },
+            get_measures_test: function(){
+                //console.log(this.measures);
+                //axios.get('/test_measures').then(
+                axios.get('/get_measures').then(
+                (response) => {
+                    //console.log(response);
+                    //console.log(this);
+                    this.measures = response.data.measures;
+                    this.setMeasuresPlotly();
+                });
+                //console.log(this.measures);
+            },
+            get_measures() {
+
+            },
+
+        },
     };
 
 
