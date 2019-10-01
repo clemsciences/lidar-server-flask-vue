@@ -1,7 +1,8 @@
 <template>
 
     <v-container id="lidar-view">
-        <v-btn @click="get_measures_test"></v-btn>
+        <v-btn @click="get_measures_test">Récupérer les données une fois</v-btn>
+        <v-btn @click="start_stop_measures">{{ this.startStopLabel }}</v-btn>
         <Plotly :data="data" :layout="layout"/>
         <Replay/>
 
@@ -23,6 +24,8 @@
         },
         data: function() {
             return {
+                playing: false,
+                startStopLabel: 'Start',
                 measures: [],
                 data: [{
                     r: [1000, 1200, 1700, 750, 2400, 2000],
@@ -48,7 +51,7 @@
                         range: [0.75, 5.25]
                     },
                     yaxis: {range: [-8, 8]},
-                    title: 'Simulation mesures LiDAR'
+                    title: 'Mesures LiDAR'
                 }
             }
         },
@@ -56,7 +59,12 @@
 
         },
         mounted: function(){
-
+        const self = this;
+            setInterval(function() {
+                if(self.playing) {
+                    self.get_measures();
+                }
+            }, 1000);
         },
         updated: function(){
 
@@ -70,7 +78,6 @@
                     theta.push(element[0]);
                     r.push(element[1]);
                 });
-                this.layout.title = 'Mesures LiDAR';
                 this.data = [
                     {
                         r: r,
@@ -90,18 +97,30 @@
             },
             get_measures_test: function(){
                 //console.log(this.measures);
-                //axios.get('/test_measures').then(
-                axios.get('/get_measures').then(
-                (response) => {
-                    //console.log(response);
-                    //console.log(this);
-                    this.measures = response.data.measures;
-                    this.setMeasuresPlotly();
+                axios.get('/test_measures').then(
+                    (response) => {
+                        //console.log(response);
+                        //console.log(this);
+                        this.measures = response.data.measures;
+                        this.setMeasuresPlotly();
                 });
                 //console.log(this.measures);
             },
+            start_stop_measures: function() {
+                this.playing = !this.playing;
+                console.log(this.playing);
+                if(this.playing) {
+                    this.startStopLabel = "Arrêter";
+                } else {
+                    this.startStopLabel = "Démarrer";
+                }
+            },
             get_measures() {
-
+                axios.post('/get_measures').then(
+                (response) => {
+                    this.measures = response.data.measures;
+                    this.setMeasuresPlotly();
+                });
             },
 
         },
