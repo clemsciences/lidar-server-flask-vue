@@ -15,6 +15,8 @@ app = Flask(__name__, static_folder='flaskvue/frontend/static', template_folder=
 # cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 session = aiohttp.ClientSession()
+address = ""
+port = 17675
 
 
 @app.route('/api/random')
@@ -53,5 +55,5 @@ def catch_all(path):
 
 
 if __name__ == '__main__':
-    app.run(debug=True, port=8081)
+    app.run(debug=True, port=5000)
     session.close()
