@@ -1,6 +1,7 @@
 <template>
 
     <v-container id="lidar-view">
+        <v-btn @click="get_measures_test"></v-btn>
         <Plotly :data="data" :layout="layout"/>
         <Replay/>
 
@@ -12,6 +13,7 @@
     import { Plotly } from 'vue-plotly';
     import Replay from './Replay';
     import axios from 'axios';
+    axios.defaults.baseURL = "http://127.0.0.1:5000";
 
     export default {
 
@@ -24,6 +26,8 @@
 
         methods: {
             get_measures_test() {
+                axios.get('/test_measures').then(response =>
+                    (this.data.measures = response.measure));
 
             },
             get_measures() {
@@ -43,6 +47,7 @@
 
         data() {
             return {
+                measures: [],
                 data: [{
                     r: [1000, 1200, 1700, 750, 2400, 2000],
                     theta: [0, 0.2*180/3.14, 180/3.14, 2*180/3.14, 3*180/3.14, 5*180/3.14],

@@ -11,16 +11,10 @@ from flask_socketio import SocketIO
 
 
 app = Flask(__name__, static_folder='flaskvue/frontend/static', template_folder='flaskvue/frontend')
-socketio = SocketIO(app)
-cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
+# socketio = SocketIO(app)
+# cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 session = aiohttp.ClientSession()
-
-
-@app.route('/', defaults={'path': ''})
-@app.route('/<path:path>')
-def catch_all(path):
-    return render_template("index.html")
 
 
 @app.route('/api/random')
@@ -45,13 +39,19 @@ async def get_measures():
         return jsonify(await resp.json())
 
 
-@app.route("/test_measures", methods=["POST"])
+@app.route("/test_measures")
 def get_measures_test():
     with open("data/measures_233530092019.json") as f:
         measures = json.load(f)
         return jsonify(measures)
 
 
+@app.route('/', defaults={'path': ''})
+# @app.route('/<path:path>')
+def catch_all(path):
+    return render_template("index.html")
+
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=8081)
     session.close()
